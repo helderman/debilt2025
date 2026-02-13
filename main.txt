@@ -1,0 +1,23 @@
+void main(void)
+{
+  45:   55                      push   rbp
+  46:   48 89 e5                mov    rbp,rsp
+  49:   48 83 ec 10             sub    rsp,0x10
+        int y = 1;
+  4d:   c7 45 fc 01 00 00 00    mov    DWORD PTR [rbp-0x4],0x1
+        y = 13;
+  54:   c7 45 fc 0d 00 00 00    mov    DWORD PTR [rbp-0x4],0xd
+        k();
+  5b:   e8 00 00 00 00          call   60 <main+0x1b>
+        y = 2;
+  60:   c7 45 fc 02 00 00 00    mov    DWORD PTR [rbp-0x4],0x2
+        printf("y = %d\n", y);
+  67:   8b 45 fc                mov    eax,DWORD PTR [rbp-0x4]
+  6a:   89 c6                   mov    esi,eax
+  6c:   48 8d 3d 00 00 00 00    lea    rdi,[rip+0x0]        # 73 <main+0x2e>
+  73:   b8 00 00 00 00          mov    eax,0x0
+  78:   e8 00 00 00 00          call   7d <main+0x38>
+}
+  7d:   90                      nop
+  7e:   c9                      leave
+  7f:   c3                      ret
